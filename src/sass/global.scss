@@ -1,0 +1,8 @@
+@import "./reset";
+@import "./variables";
+@import "./mixins";
+
+body {
+	font-size: 1.4rem;
+	min-width: 320px;
+}
