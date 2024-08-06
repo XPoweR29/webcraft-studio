@@ -1,8 +1,30 @@
+import { Wrapper } from "./components/Wrapper";
+import { useBreakpoints } from "./hooks/useBreakpoints";
+
 export const App = () => {
+	const {breakpoint} = useBreakpoints();
+
 	return (
 		<>
-			<h1>Hello World!</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate ipsam facere non unde porro natus voluptatibus. Sequi nisi similique labore nostrum laboriosam temporibus delectus blanditiis totam ad laudantium, praesentium sapiente impedit dolorum ipsum provident incidunt omnis fugiat harum illo nobis animi minima doloribus et. Dolores aspernatur necessitatibus ratione veritatis ipsa? Quam maxime praesentium asperiores itaque necessitatibus eum sed iusto tempore facilis explicabo quisquam quo reprehenderit numquam porro vitae omnis vel cum consequuntur ex in accusantium pariatur, molestiae quos. Ratione nulla consequuntur labore delectus expedita. Consequatur rerum consectetur exercitationem sed assumenda nisi repellat aliquam accusantium saepe quo. Facere fugit itaque tempore?</p>
+				<Wrapper>
+					<h1>WebCraf tSTUDIO</h1>
+					<hr />
+					<br />
+					<p>
+						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolor
+						aspernatur ipsa cumque eius aliquid necessitatibus. Illo
+						reprehenderit iste nam delectus culpa quas aspernatur. Neque
+						delectus officia molestias quasi, similique laudantium omnis
+						inventore aut aperiam fuga consequatur id perspiciatis rerum quod
+						illo exercitationem commodi accusantium suscipit? Nostrum odit optio
+						doloribus reprehenderit dolor blanditiis odio minima quibusdam, cum
+						consectetur suscipit delectus repudiandae! In ab nemo, qui debitis
+						nostrum vitae eum nam asperiores, nulla non molestias itaque, eius
+						voluptatem reprehenderit. Minus, provident sed.
+					</p>
+
+                    {breakpoint.lg&&<h1>BIG SIZE BRO!</h1>}
+				</Wrapper>
 		</>
 	);
 };
