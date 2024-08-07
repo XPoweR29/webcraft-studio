@@ -1,2 +1,33 @@
-.heading {
+@import "../../sass/mixins";
+
+.home {
+    
+    .contentContainer {
+        border: 1px solid lightgray;
+        border-radius: 30px;
+        overflow: hidden;
+    }
+
+    .lightBox {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        background-color: rgb(177, 233, 224);
+    }
+
+    .featureList {
+        margin: 1em;
+        list-style: none;
+
+        .featureItem {
+            display: flex;
+            gap: 0.5em;
+        }
+    }
+
+    .ctaBtn {
+        @include mainBtn(dark);
+        margin: 0 auto;
+        text-transform: uppercase;
+    }
 }
