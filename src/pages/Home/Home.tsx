@@ -5,6 +5,7 @@ import tech3 from "../../assets/icons/tech_3.png";
 import styles from "./Home.module.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Nav } from "../../components/Nav/Nav";
+import { AuroraBackground } from "../../components/AuroraBg/AuroraBg";
 
 export const Home = () => {
 	return (
@@ -13,37 +14,41 @@ export const Home = () => {
 				<Nav />
 
 				<div className={styles.contentContainer}>
-					<div className={styles.lightBox}>
-						<h1 className={styles.heroHeading}>
-							Tworzymy strony internetowe, które przyniosą Ci sukces
-						</h1>
+					<AuroraBackground className={styles.auroraBg}>
+						<div className={styles.lightBox}>
+							<h1 className={styles.heroHeading}>
+								<span className={styles.line1}>Tworzymy</span>
+								<span className={styles.line2}>strony internetowe</span>
+								<span className={styles.line3}>które przyniosą Ci sukces</span>
+							</h1>
 
-						<p className={styles.text}>
-							Profesjonalne usługi web developmentu. Stworzymy dla Ciebie
-							efektywną stronę internetową, która przyciągnie klientów.
-						</p>
+							<p className={styles.text}>
+								Profesjonalne usługi web developmentu. Stworzymy dla Ciebie
+								efektywną stronę internetową, która przyciągnie klientów.
+							</p>
 
-						<ul className={styles.featureList}>
-							<li className={styles.featureItem}>
-								<Icon icon="solar:arrow-right-broken" />
-								<p>Indywidualny Projekt</p>
-							</li>
+							<ul className={styles.featureList}>
+								<li className={styles.featureItem}>
+									<Icon icon="solar:arrow-right-broken" />
+									<p>Indywidualny Projekt</p>
+								</li>
 
-							<li className={styles.featureItem}>
-								<Icon icon="solar:arrow-right-broken" />
-								<p>Intuicyjny CMS</p>
-							</li>
+								<li className={styles.featureItem}>
+									<Icon icon="solar:arrow-right-broken" />
+									<p>Intuicyjny CMS</p>
+								</li>
 
-							<li className={styles.featureItem}>
-								<Icon icon="solar:arrow-right-broken" />
-								<p>Konkurencyjna Oferta</p>
-							</li>
-						</ul>
+								<li className={styles.featureItem}>
+									<Icon icon="solar:arrow-right-broken" />
+									<p>Konkurencyjna Oferta</p>
+								</li>
+							</ul>
 
-						<a href="/" className={styles.ctaBtn}>
-							Skorzystaj z oferty
-						</a>
-					</div>
+							<a href="/" className={styles.ctaBtn}>
+								Skorzystaj z oferty
+							</a>
+						</div>
+					</AuroraBackground>
 
 					<div className={styles.darkBox}>
 						<h2 className={styles.heading}>

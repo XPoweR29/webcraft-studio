@@ -1,33 +1,61 @@
 @import "../../sass/mixins";
 
 .home {
-    
-    .contentContainer {
-        border: 1px solid lightgray;
-        border-radius: 30px;
-        overflow: hidden;
-    }
+	.wrapper {
+		padding-left: 0;
+		padding-right: 0;
+	}
 
-    .lightBox {
-        display: flex;
-        flex-direction: column;
-        padding: 1em;
-        background-color: rgb(177, 233, 224);
-    }
+	.contentContainer {
+		border: 1px solid lightgray;
+		border-radius: 30px;
+		overflow: hidden;
+	}
 
-    .featureList {
-        margin: 1em;
-        list-style: none;
+	.heroHeading {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 0.3em;
+		font-weight: 800;
+		font-size: 1.72em;
+		color: $main-dark;
+		text-align: center;
 
-        .featureItem {
-            display: flex;
-            gap: 0.5em;
-        }
-    }
+		span {
+			line-height: 1;
 
-    .ctaBtn {
-        @include mainBtn(dark);
-        margin: 0 auto;
-        text-transform: uppercase;
-    }
+			&.line2 {
+				color: $light-dark;
+			}
+		}
+	}
+
+	.auroraBg {
+		background: linear-gradient(to left bottom, white 70%, #8ef6d733);
+	}
+
+	.lightBox {
+		position: relative;
+		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		padding: 1em;
+	}
+
+	.featureList {
+		margin: 1em;
+		list-style: none;
+
+		.featureItem {
+			display: flex;
+			gap: 0.5em;
+		}
+	}
+
+	.ctaBtn {
+		@include mainBtn(dark);
+		margin: 3em auto;
+		text-transform: uppercase;
+	}
 }
