@@ -24,10 +24,11 @@
 
 		span {
 			line-height: 1;
+		}
 
-			&.line2 {
-				color: $light-dark;
-			}
+		.line2 {
+			color: $light-dark;
+			display: flex;
 		}
 	}
 
@@ -40,7 +41,7 @@
 		z-index: 1;
 		display: flex;
 		flex-direction: column;
-		padding: 1em;
+		padding: 2.5em 1em;
 	}
 
 	.featureList {

@@ -6,6 +6,7 @@ import styles from "./Home.module.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { Nav } from "../../components/Nav/Nav";
 import { AuroraBackground } from "../../components/AuroraBg/AuroraBg";
+import { WordFlipper } from "../../components/WordFlipper/WordFlipper";
 
 export const Home = () => {
 	return (
@@ -18,7 +19,7 @@ export const Home = () => {
 						<div className={styles.lightBox}>
 							<h1 className={styles.heroHeading}>
 								<span className={styles.line1}>Tworzymy</span>
-								<span className={styles.line2}>strony internetowe</span>
+                                <WordFlipper className={styles.line2} words={["nowoczesne strony", "sklepy internetowe", "kreatywne projekty", "innowacyjne pomysły"]}/>
 								<span className={styles.line3}>które przyniosą Ci sukces</span>
 							</h1>
 
