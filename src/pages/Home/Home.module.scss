@@ -1,39 +1,27 @@
 @import "../../sass/mixins";
+@import "../../sass/animations";
 
 .home {
+	@include section;
+	padding-top: 0;
+
 	.wrapper {
 		padding-left: 0;
 		padding-right: 0;
 	}
 
 	.contentContainer {
-		border: 1px solid lightgray;
 		border-radius: 30px;
+		box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.5);
 		overflow: hidden;
 	}
 
-	.heroHeading {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		gap: 0.3em;
-		font-weight: 800;
-		font-size: 1.72em;
-		color: $main-dark;
-		text-align: center;
-
-		span {
-			line-height: 1;
-		}
-
-		.line2 {
-			color: $light-dark;
-			display: flex;
-		}
-	}
-
 	.auroraBg {
-		background: linear-gradient(to left bottom, white 70%, #8ef6d733);
+		background: linear-gradient(
+			to left bottom,
+			white 60%,
+			rgba(142, 246, 215, 0.4)
+		);
 	}
 
 	.lightBox {
@@ -42,21 +30,136 @@
 		display: flex;
 		flex-direction: column;
 		padding: 2.5em 1em;
-	}
+		padding-bottom: 4em;
 
-	.featureList {
-		margin: 1em;
-		list-style: none;
-
-		.featureItem {
+		.heroHeading {
 			display: flex;
-			gap: 0.5em;
+			flex-direction: column;
+			align-items: center;
+			gap: 0.3em;
+			font-weight: 800;
+			font-size: 1.9em;
+			color: $main-dark;
+			text-align: center;
+
+			span {
+				line-height: 0.9;
+			}
+
+			.line2 {
+				color: $light-dark;
+				display: flex;
+			}
+		}
+
+		.text {
+			margin-top: 1.5em;
+			font-weight: 500;
+
+			strong {
+				font-weight: inherit;
+			}
+		}
+		.featureList {
+			display: flex;
+			flex-direction: column;
+			gap: 0.3em;
+			margin: 2em 1em;
+			list-style: none;
+
+			.featureItem {
+				display: flex;
+				align-items: center;
+				gap: 0.5em;
+				animation: slide-in-blurred-left 3s cubic-bezier(0.23, 1, 0.32, 1) both;
+
+				&:nth-child(2) {
+					animation-delay: 0.4s;
+				}
+
+				&:nth-child(3) {
+					animation-delay: 1.2s;
+				}
+
+				svg {
+					font-size: 1.3em;
+				}
+			}
+		}
+
+		.ctaBtn {
+			@include mainBtn(dark);
+			margin: 3em auto;
+			text-transform: uppercase;
 		}
 	}
 
-	.ctaBtn {
-		@include mainBtn(dark);
-		margin: 3em auto;
-		text-transform: uppercase;
+	.darkBox {
+		position: relative;
+		padding: 2.5em 1em;
+		padding-top: 15em;
+		background: $gradient-dark;
+
+		.screenImg {
+			position: absolute;
+			top: -95px;
+			left: 10px;
+		}
+
+		.rocketImg {
+			top: 100px;
+			left: 15px;
+			position: absolute;
+			width: 70px;
+			opacity: 0.15;
+			animation: rocket-fly 0.5s infinite ease-in-out;
+		}
+
+		.arrowImg {
+			position: absolute;
+			width: 200px;
+			bottom: -65px;
+			right: 5px;
+			rotate: -10deg;
+			opacity: 0.15;
+		}
+
+		.heading {
+			@include heading;
+			display: flex;
+			flex-direction: column;
+			color: white;
+			font-weight: 500;
+
+			.line1 {
+				color: #94a9ce;
+			}
+		}
+
+		.techCard {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin-top: 3em;
+			padding: 2em 1em;
+			background: $gradient-accent;
+			border-radius: 15px;
+
+			p {
+				width: 90%;
+				font-weight: 600;
+				border-bottom: 1px solid $main-dark;
+				padding-bottom: 1em;
+			}
+
+			.iconBox {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 1em;
+				margin-top: 1.5em;
+			}
+		}
 	}
 }

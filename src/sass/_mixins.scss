@@ -1,16 +1,25 @@
 @import "./variables";
 
 @mixin mainBtn($theme: dark) {
-    padding: 1.2em 1.7em;
+    padding: 1.2em;
     font-weight: 700;
     color: white;
-    background: linear-gradient(45deg, $semi-dark, $main-dark);
+    background: $gradient-dark;
     border-radius: 15px;
     box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
     
     @if $theme == light {
-        background: linear-gradient(45deg, white, #DFDFDF);
+        background: $gradient-light;
         color: $main-dark;
         
     }
+}
+
+@mixin section {
+    padding: 25px 0;
+}
+
+@mixin heading {
+    font-size: 1.75em;
+    font-weight: 700;
 }

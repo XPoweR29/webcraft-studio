@@ -1,4 +1,4 @@
-export interface Breakpoints {
+ interface Breakpoints {
 	/** Small breakpoint (>= 576px) */
 	sm: boolean;
 	/** Medium breakpoint (>= 768px) */
@@ -13,4 +13,9 @@ export interface Breakpoints {
 
 interface AppContextType {
 	breakpoint: Breakpoints;
+}
+
+export type Review = {
+	author: string;
+	comment: string;
 }

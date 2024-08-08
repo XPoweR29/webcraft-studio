@@ -1,4 +1,4 @@
-import logo from "../../assets/logo_dark.png";
+import logo from "../../assets/images/logo_dark.png";
 import styles from "./Nav.module.scss";
 
 export const Nav = () => {

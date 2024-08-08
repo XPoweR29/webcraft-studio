@@ -1,0 +1,30 @@
+@import "../../sass/variables";
+
+.swiperBtns {
+	display: flex;
+	justify-content: right;
+	align-items: center;
+
+	.prev,
+	.next {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: transparent;
+		font-size: 2rem;
+        padding: 0.25em;
+		color: $accent-color;
+		filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.2));
+		cursor: pointer;
+		transition: opacity 0.2s, color 0.2s;
+		-webkit-tap-highlight-color: transparent; 
+		-moz-user-focus: none;
+
+		&.disabled {
+			color: $accent-color;
+			opacity: 0.15;
+			cursor: auto;
+			pointer-events: none;
+		}
+	}
+}

@@ -1,5 +1,11 @@
+//colors
 $accent-color: #0AC2D4;
 $accent-lighter: #90F6D7;
 $main-dark: #263849;
 $semi-dark: #41506B;
 $light-dark: #546688;
+
+//gradients 
+$gradient-dark: linear-gradient(45deg, $semi-dark, $main-dark);
+$gradient-light: linear-gradient(45deg, white, #DFDFDF);
+$gradient-accent: linear-gradient(45deg, $accent-color, $accent-lighter);
