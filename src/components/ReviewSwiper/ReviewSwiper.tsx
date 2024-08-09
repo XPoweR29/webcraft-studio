@@ -11,14 +11,20 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import { useBreakpoints } from "../../hooks/useBreakpoints";
 
-export const ReviewSwiper = () => {
+interface Props {
+	className?: string;
+}
+
+export const ReviewSwiper = ({className}: Props) => {
+	const {breakpoint} = useBreakpoints();
 	const ref = useRef(null);
 	const swiperRef = useRef<SwiperClass | null>(null);
 	const reviews: Review[] = comments;
 
 	const inView = useInView(ref, {
-		margin: "20px",
+		margin: `${breakpoint.lg?"-100px":"-50px"}`,
 		once: true,
 	});
 
@@ -29,7 +35,7 @@ export const ReviewSwiper = () => {
 
 	return (
 		<motion.div
-			className={styles.swiperContainer}
+			className={`${styles.swiperContainer} ${className}`}
 			ref={ref}
 			variants={variants}
 			initial={{ y: 100, opacity: 0 }}
