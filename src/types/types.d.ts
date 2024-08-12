@@ -19,3 +19,8 @@ export type Review = {
 	author: string;
 	comment: string;
 }
+
+interface NavLink {
+	name: string;
+	href: string;
+}

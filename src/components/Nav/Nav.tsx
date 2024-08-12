@@ -1,3 +1,4 @@
+import { navLinks } from "../../assets/data/navigation_links";
 import logo from "../../assets/images/logo_dark.png";
 import styles from "./Nav.module.scss";
 
@@ -7,9 +8,9 @@ export const Nav = () => {
 			<img className={styles.logo} src={logo} alt="logo WebCraft STUDIO" />
 
 			<ul>
-				<li>Start</li>
-				<li>O nas</li>
-				<li>Projekty</li>
+				{navLinks.map(({name, href}, index) => (
+					<a href={href} key={index}>{name}</a>
+				))}
 			</ul>
 		</nav>
 	);
