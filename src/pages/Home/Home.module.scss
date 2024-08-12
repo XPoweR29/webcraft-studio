@@ -3,7 +3,7 @@
 
 .home {
 	@include section;
-	padding-top: 0;
+	padding-top: 2em;
 
 	.wrapper {
 		padding-left: 0;
@@ -327,7 +327,7 @@
 			.cardsContainer {
 				flex-direction: row;
 				justify-content: start;
-				margin-top: 2em;
+				margin-top: 3em;
 				gap: 4em;
 			}
 

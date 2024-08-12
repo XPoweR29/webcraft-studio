@@ -1,26 +1,43 @@
 @import "./variables";
 
 @mixin mainBtn($theme: dark) {
-    padding: 1.2em;
-    font-weight: 700;
-    color: white;
-    background: $gradient-dark;
-    border-radius: 15px;
-    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-    
-    @if $theme == light {
-        background: $gradient-light;
-        color: $main-dark;
-        
-    }
+	padding: 1.2em;
+	font-weight: 700;
+	color: white;
+	background: $gradient-dark;
+	border-radius: 15px;
+	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+
+	@if $theme == light {
+		background: $gradient-light;
+		color: $main-dark;
+	}
 }
 
 @mixin section {
-    padding: 25px 0;
-    overflow: clip;
+	padding: 25px 0;
+	overflow: clip;
 }
 
 @mixin heading {
-    font-size: 1.75em;
-    font-weight: 700;
+	font-size: 1.75em;
+	font-weight: 700;
+}
+
+@mixin section-heading {
+	position: relative;
+    margin-bottom: 1.5em;
+	font-weight: bold;
+	font-size: 1.75em;
+    line-height: 1.2;
+
+	&::after {
+		content: "";
+		position: absolute;
+		height: 1px;
+		width: 30%;
+		bottom: -3px;
+		left: 0;
+        background-color: $main-dark;
+	}
 }

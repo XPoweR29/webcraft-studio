@@ -8,7 +8,6 @@ import screen_small from "../../assets/images/screen_small.webp";
 import screen_big from "../../assets/images/screen_big.webp";
 import styles from "./Home.module.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { Nav } from "../../components/Nav/Nav";
 import { AuroraBackground } from "../../components/AuroraBg/AuroraBg";
 import { WordFlipper } from "../../components/WordFlipper/WordFlipper";
 import { ReviewSwiper } from "../../components/ReviewSwiper/ReviewSwiper";
@@ -44,7 +43,6 @@ export const Home = () => {
 	return (
 		<section className={styles.home} id="home">
 			<Wrapper className={styles.wrapper}>
-				<Nav />
 
 				<div className={styles.contentContainer}>
 					<AuroraBackground className={styles.auroraBg}>
