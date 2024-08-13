@@ -1,7 +1,7 @@
 import aboutImg_small from "../../assets/images/aboutImg_small.webp";
 import aboutImg_big from "../../assets/images/aboutImg_big.webp";
 import arrowDraw from "../../assets/images/arrow_draw.svg";
-import { Wrapper } from "../../components/Wrapper";
+import { Wrapper } from "../../components/Wrapper/Wrapper";
 import { useBreakpoints } from "../../hooks/useBreakpoints";
 import styles from "./About.module.scss";
 
@@ -19,7 +19,7 @@ export const About = () => {
 					/>
 
 					<div className={styles.content}>
-						<h2 className={styles.sectionHeading}>
+						<h2 className={styles.heading}>
 							Projektujemy i budujemy strony, które wyróżnią Cię w sieci!
 						</h2>
 

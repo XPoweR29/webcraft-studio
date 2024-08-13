@@ -1,0 +1,36 @@
+@import "../../sass/mixins";
+
+.offer {
+	@include section;
+
+	.heading {
+		@include section-heading;
+	}
+
+	.featureContainer {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		margin-top: 4em;
+		row-gap: 2.5em;
+		column-gap: 4em;
+	}
+}
+
+@media (width >= 992px) {
+	.offer {
+		
+        .heading {
+			width: fit-content;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+        .text {
+            max-width: 80%;
+            margin: 0 auto;
+            text-align: center;
+        }
+	}
+}
