@@ -1,0 +1,91 @@
+@import "../../sass/mixins";
+
+.portfolio {
+	@include section;
+
+	.heading {
+		@include section-heading;
+	}
+
+	.projectsContainer {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		align-items: center;
+		gap: 5em;
+		padding: 4em 0;
+		margin-top: 2em;
+	}
+
+	.assuranceSection {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		padding: 2em 1em;
+		margin-top: 2em;
+		color: white;
+		background-image: url("../../assets/images/laptop_desk.webp");
+		background-size: cover;
+		background-position: center;
+		background-attachment: fixed;
+		border-radius: 30px;
+		overflow: hidden;
+		z-index: 1;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.7);
+			z-index: -1;
+		}
+
+		.title {
+			@include section-heading;
+
+			&::after {
+				background-color: white;
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+
+		.text {
+			text-align: center;
+		}
+
+		.itemsContainer {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+			gap: 3em;
+			padding: 3em 0em;
+		}
+	}
+}
+
+@media (width >= 768px) {
+	.portfolio {
+		.assuranceSection {
+			.itemsContainer {
+				max-width: 880px;
+				column-gap: 6em;
+				row-gap: 5em;
+			}
+		}
+	}
+}
+
+@media (width >= 992px) {
+	.portfolio {
+		.text {
+			width: 80%;
+		}
+	}
+}

@@ -25,8 +25,14 @@ interface NavLink {
 	href: string;
 }
 
-export interface Feature {
+interface Feature {
 	icon: string;
 	title: string;
 	description: string;
+}
+
+interface Project {
+	thumbnail: string;
+	title: string;
+	previewUrl: string
 }
