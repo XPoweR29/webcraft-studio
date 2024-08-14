@@ -36,3 +36,8 @@ interface Project {
 	title: string;
 	previewUrl: string
 }
+
+type FAQType = {
+	question: string;
+	answer: string;
+}

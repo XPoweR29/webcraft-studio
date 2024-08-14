@@ -6,6 +6,7 @@ import { Nav } from "./components/Nav/Nav";
 import { About } from "./pages/About/About";
 import { Offer } from "./pages/Offer/Offer";
 import { Portfolio } from "./pages/Portfolio/Portfolio";
+import { FAQ } from "./pages/FAQ/FAQ";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<ContextProvider>
@@ -14,5 +15,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 			<About />
 			<Offer />
 			<Portfolio />
+			<FAQ/>
 	</ContextProvider>
 );

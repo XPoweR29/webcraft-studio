@@ -2,6 +2,7 @@
 
 .portfolio {
 	@include section;
+	padding-bottom: 7em;
 
 	.heading {
 		@include section-heading;
@@ -47,6 +48,7 @@
 
 		.title {
 			@include section-heading;
+			text-align: center;
 
 			&::after {
 				background-color: white;

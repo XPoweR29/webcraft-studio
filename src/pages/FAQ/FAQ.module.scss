@@ -1,0 +1,135 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.faq {
+	@include section;
+	background: $gradient-dark;
+	color: white;
+
+	.wrapper {
+		position: relative;
+	}
+
+	.questionsImg {
+		position: absolute;
+		width: 170px;
+		right: -15px;
+		top: -50px;
+	}
+
+	.heading {
+		@include section-heading;
+		margin-bottom: 0.5em;
+		font-size: 4em;
+		font-weight: 900;
+		letter-spacing: -0.18em;
+
+		&::after {
+			background-color: #fff;
+		}
+	}
+
+	.title {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		font-weight: bold;
+		font-size: 1.7em;
+		line-height: 1.1;
+		letter-spacing: 6px;
+	}
+
+	.faqContainer {
+		margin: 3em auto;
+	}
+
+	.ctaSection {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		gap: 2em;
+		padding: 2em 1em;
+		margin: 0 auto;
+		color: $main-dark;
+		background: $gradient-accent;
+		border-radius: 5px 30px 5px 30px;
+
+		&_title {
+			@include section-heading;
+			margin-bottom: 0;
+
+			&::after {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+		}
+
+		&_btn {
+			@include mainBtn;
+		}
+	}
+}
+
+@media (width >= 400px) {
+	.faq {
+		.questionsImg {
+			width: 220px;
+		}
+	}
+}
+
+@media (width >= 576px) {
+	.faq {
+		.questionsImg {
+			width: 300px;
+		}
+
+		.ctaSection {
+			padding: 2em;
+		}
+	}
+}
+
+@media (width >= 768px) {
+	.faq {
+		.questionsImg {
+			width: 370px;
+			right: 25px;
+			top: -60px;
+		}
+	}
+}
+
+@media (width >= 992px) {
+	.faq {
+		.wrapper {
+			display: flex;
+			justify-content: space-between;
+			gap: 4em;
+		}
+
+		.questionsImg {
+			width: 500px;
+			right: auto;
+			top: auto;
+			bottom: 0;
+			left: -120px;
+		}
+
+		.contentContainer {
+			max-width: 900px;
+		}
+	}
+}
+
+@media (width >= 1400px) {
+	.faq {
+		.questionsImg {
+			width: 550px;
+			left: -100px;
+			bottom: -10px;
+		}
+	}
+}

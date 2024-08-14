@@ -21,10 +21,13 @@ export const WordFlipper = ({
 	}, [currentWord, words]);
 
 	useEffect(() => {
+		let timeoutId: NodeJS.Timeout;
 		if (!isAnimating)
-			setTimeout(() => {
+			timeoutId = setTimeout(() => {
 				startAnimation();
 			}, duration);
+
+			return () => clearTimeout(timeoutId);
 	}, [isAnimating, duration, startAnimation]);
 
 	return (

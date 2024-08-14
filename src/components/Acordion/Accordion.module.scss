@@ -1,0 +1,55 @@
+@import "../../sass/variables";
+
+.accordion {
+	border-bottom: 1px solid white;
+
+	.header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		padding: 1em 0.5em;
+		cursor: pointer;
+
+		.question {
+			width: 95%;
+			font-weight: 600;
+			transition: color 0.5s;
+
+			&--active {
+				color: $accent-color;
+			}
+		}
+
+		.icon {
+			font-size: 1.5rem;
+			color: $accent-color;
+
+			&--opened {
+				rotate: 180deg;
+			}
+		}
+	}
+
+	.answer {
+		max-height: 0;
+		font-weight: 200;
+		transition: max-height 0.5s ease-in-out;
+		overflow: hidden;
+
+		&_text {
+			margin: 0.5em;
+			margin-top: 0;
+			opacity: 0;
+			transition: opacity 0.5s ease-in-out;
+		}
+
+		&--open {
+			max-height: 1000px;
+
+			.answer_text {
+				opacity: 1;
+			}
+		}
+	}
+}

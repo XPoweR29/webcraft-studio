@@ -4,6 +4,7 @@
 .home {
 	@include section;
 	padding-top: 2em;
+	overflow: hidden;
 
 	.wrapper {
 		padding-left: 0;
