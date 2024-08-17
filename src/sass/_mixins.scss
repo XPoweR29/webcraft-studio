@@ -7,10 +7,16 @@
 	background: $gradient-dark;
 	border-radius: 15px;
 	box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+	scale: 1;
+	transition: scale 0.3s;
 
 	@if $theme == light {
 		background: $gradient-light;
 		color: $main-dark;
+	}
+	
+	&:hover {
+		scale: 1.05;
 	}
 }
 

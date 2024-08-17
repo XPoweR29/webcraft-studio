@@ -1,0 +1,22 @@
+@import "../../sass/mixins";
+@import "../../sass/variables";
+
+.footer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    gap: 0.5em;
+    padding: 2em 0;
+	background: $gradient-dark;
+
+    img {
+        width: 6em;
+    }
+
+	.text {
+        color: white;
+        opacity: 0.5;
+        font-size: 0.75em;
+	}
+}

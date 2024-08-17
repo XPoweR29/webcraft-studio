@@ -1,0 +1,98 @@
+@import "../../sass/mixins";
+
+.contactForm {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: start;
+	max-width: 500px;
+	margin: 0 auto;
+	margin-top: 4em;
+	padding: 20px;
+}
+
+.formInput {
+	margin-bottom: 15px;
+	width: 100%;
+}
+
+input,
+textarea {
+	width: 100%;
+	padding: 10px;
+	border-radius: 10px;
+	border: 1px solid #d7d7d7;
+	background-color: transparent;
+
+	&:focus {
+		outline: 2px solid $accent-color;
+	}
+}
+
+textarea {
+	resize: none;
+	height: 200px;
+}
+
+.checkboxContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+
+	input {
+		appearance: none;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		outline: none;
+		cursor: pointer;
+		height: 15px;
+		width: 15px;
+		border: 2px solid $accent-color;
+		border-radius: 4px;
+		display: inline-block;
+		position: relative;
+		background-color: transparent;
+
+		&:checked {
+			background-color: white; // Kolor tła po zaznaczeniu
+			border-color: $accent-color;
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 45%;
+				left: 25%;
+				width: 6px;
+				height: 12px;
+				border: solid $accent-color;
+				border-width: 0 2px 2px 0;
+				transform: rotate(45deg) translate(-50%, -50%);
+			}
+		}
+	}
+
+	.checkboxLabel {
+		font-size: 0.85em;
+	}
+}
+
+.submitButton {
+	@include mainBtn;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 0.5em;
+	margin-top: 2em;
+
+	.icon {
+		font-size: 1.5em;
+	}
+}
+
+@media(width >= 1400px) {
+	.contactForm {
+		max-width: 600px;
+	}
+}

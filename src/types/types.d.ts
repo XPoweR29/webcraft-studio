@@ -1,4 +1,4 @@
- interface Breakpoints {
+interface Breakpoints {
 	/** Small breakpoint (>= 576px) */
 	sm: boolean;
 	/** Medium breakpoint (>= 768px) */
@@ -18,7 +18,7 @@ interface AppContextType {
 export type Review = {
 	author: string;
 	comment: string;
-}
+};
 
 interface NavLink {
 	name: string;
@@ -34,10 +34,18 @@ interface Feature {
 interface Project {
 	thumbnail: string;
 	title: string;
-	previewUrl: string
+	previewUrl: string;
 }
 
 type FAQType = {
 	question: string;
 	answer: string;
+};
+interface FormData {
+	name: string;
+	email: string;
+	phone: string;
+	subject: string;
+	message: string;
+	consent: boolean;
 }
