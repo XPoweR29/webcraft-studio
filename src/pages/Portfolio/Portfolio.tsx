@@ -9,8 +9,11 @@ import innovation from "../../assets/icons/innovation.svg";
 import styles from "./Portfolio.module.scss";
 import { projects } from "../../assets/data/projects";
 import { AssuranceItem } from "../../components/AssuranceItem/AssuranceItem";
+import { useRef } from "react";
 
 export const Portfolio = () => {
+	const ref = useRef(null);
+
 	return (
 		<section id="portfolio" className={styles.portfolio}>
 			<Wrapper className={styles.wrapper}>
@@ -40,13 +43,13 @@ export const Portfolio = () => {
 						Zobacz, jakie korzyści niesie ze sobą współpraca z nami.
 					</p>
 
-					<div className={styles.itemsContainer}>
-						<AssuranceItem icon={personality}>Indywidualne podejście</AssuranceItem>
-						<AssuranceItem icon={quality}>Profesjonalizm</AssuranceItem>
-						<AssuranceItem icon={communication}>Jasna komunikacja</AssuranceItem>
-						<AssuranceItem icon={deadline}>Terminowość</AssuranceItem>
-						<AssuranceItem icon={support}>Wsparcie po wdrożeniu</AssuranceItem>
-						<AssuranceItem icon={innovation}>Innowacyjne podejście</AssuranceItem>
+					<div className={styles.itemsContainer} ref={ref}>
+						<AssuranceItem parentRef={ref} animeDelay={0.2} icon={personality}>Indywidualne podejście</AssuranceItem>
+						<AssuranceItem parentRef={ref} animeDelay={0.4} icon={quality}>Profesjonalizm</AssuranceItem>
+						<AssuranceItem parentRef={ref} animeDelay={0.6} icon={communication}>Jasna komunikacja</AssuranceItem>
+						<AssuranceItem parentRef={ref} animeDelay={0.8} icon={deadline}>Terminowość</AssuranceItem>
+						<AssuranceItem parentRef={ref} animeDelay={1} icon={support}>Wsparcie po wdrożeniu</AssuranceItem>
+						<AssuranceItem parentRef={ref} animeDelay={1.2} icon={innovation}>Innowacyjne podejście</AssuranceItem>
 					</div>
 				</div>
 			</Wrapper>
