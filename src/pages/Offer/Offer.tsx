@@ -1,11 +1,16 @@
+import { useContext } from "react";
 import { features } from "../../assets/data/features";
 import { FeatureItem } from "../../components/Feature/FeaatureItem";
+import { ScrollSpySection } from "../../components/ScrollSpySection/ScrollSpySection";
 import { Wrapper } from "../../components/Wrapper/Wrapper";
+import { AppContext } from "../../contexts/AppContext";
 import styles from "./Offer.module.scss";
 
 export const Offer = () => {
+	const { setVisibleSection } = useContext(AppContext)!;
+
 	return (
-		<section id="offer" className={styles.offer}>
+		<ScrollSpySection id="offer" className={styles.offer} onVisible={()=>setVisibleSection("offer")}>
 			<Wrapper className={styles.wrapper}>
 				<h2 className={styles.heading}>
 					Kompleksowe rozwiązania Web Developmentu dla Twojej firmy.
@@ -29,6 +34,6 @@ export const Offer = () => {
 					))}
 				</div>
 			</Wrapper>
-		</section>
+		</ScrollSpySection>
 	);
 };

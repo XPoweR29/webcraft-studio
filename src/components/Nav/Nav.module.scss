@@ -1,16 +1,49 @@
+@import "../../sass/variables";
+
 .nav {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding-top: 1em;
+	padding: 1em 4em;
+	z-index: 1000;
+	background-color: white;
+
+	.wrapper {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 
 	.logo {
 		width: 7.2em;
-
 	}
-    
-    ul {
-        display: flex;
-        gap: 0.5em;
-    }
+
+	.linksBar {
+		display: flex;
+		gap: 1.5em;
+
+		.link {
+			font-weight: 400;
+			transition: color 0.5s;
+
+			&--active {
+				color: $accent-color;
+				text-shadow: 0px 0px 20px rgba(10, 195, 212, 0.3);
+			}
+		}
+	}
+}
+
+@media (width >= 992px) {
+	.nav {
+		position: fixed;
+		width: 100%;
+		top: 0;
+		transition: top 0.5s;
+
+		&--hidden {
+			top: -100px
+		}
+
+		.wrapper {
+			justify-content: space-between;
+		}
+	}
 }

@@ -4,12 +4,16 @@ import { FAQType } from "../../types/types";
 import questions from "../../assets/data/faq.json";
 import questionsImg from "../../assets/images/quesrtions.svg";
 import styles from "./FAQ.module.scss";
+import { ScrollSpySection } from "../../components/ScrollSpySection/ScrollSpySection";
+import { useContext } from "react";
+import { AppContext } from "../../contexts/AppContext";
 
 export const FAQ = () => {
+	const { setVisibleSection } = useContext(AppContext)!;
 	const faq: FAQType[] = questions;
 
 	return (
-		<section id="faq" className={styles.faq}>
+		<ScrollSpySection id="faq" className={styles.faq} onVisible={()=>setVisibleSection("faq")}>
 			<Wrapper className={styles.wrapper}>
 				<img
 					src={questionsImg}
@@ -48,6 +52,6 @@ export const FAQ = () => {
 					</div>
 				</div>
 			</Wrapper>
-		</section>
+		</ScrollSpySection>
 	);
 };

@@ -1,17 +1,60 @@
+import { useContext, useEffect, useState } from "react";
 import { navLinks } from "../../assets/data/navigation_links";
 import logo from "../../assets/images/logo_dark.png";
+import { Wrapper } from "../Wrapper/Wrapper";
 import styles from "./Nav.module.scss";
+import { AppContext } from "../../contexts/AppContext";
+import { useBreakpoints } from "../../hooks/useBreakpoints";
 
 export const Nav = () => {
-	return (
-		<nav className={styles.nav}>
-			<img className={styles.logo} src={logo} alt="logo WebCraft STUDIO" />
+	const { breakpoint } = useBreakpoints();
+	const { visibleSection } = useContext(AppContext)!;
+	const [prevScrollPos, setPrevScrollPos] = useState(0);
+	const [showNav, setShowNav] = useState(true);
 
-			<ul>
-				{navLinks.map(({name, href}, index) => (
-					<a href={href} key={index}>{name}</a>
-				))}
-			</ul>
+	useEffect(() => {
+		const handleScroll = () => {
+			const currentScrollPos = window.scrollY;
+
+			if (prevScrollPos > currentScrollPos) {
+				setShowNav(true);
+			} else {
+				setShowNav(false);
+			}
+
+			setPrevScrollPos(currentScrollPos);
+		};
+
+		window.addEventListener("scroll", handleScroll);
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, [prevScrollPos]);
+
+	return (
+		<nav
+			className={`${styles.nav} ${
+				breakpoint.lg && (!showNav ? styles["nav--hidden"] : "")
+			}`}>
+			<Wrapper className={styles.wrapper}>
+				<a href="/#">
+					<img className={styles.logo} src={logo} alt="logo WebCraft STUDIO" />
+				</a>
+
+				{breakpoint.lg && (
+					<ul className={styles.linksBar}>
+						{navLinks.map(({ name, href, id }, index) => (
+							<li key={index}>
+								<a
+									className={`${styles.link} ${
+										visibleSection === id ? styles["link--active"] : ""
+									}`}
+									href={href}>
+									{name}
+								</a>
+							</li>
+						))}
+					</ul>
+				)}
+			</Wrapper>
 		</nav>
 	);
 };

@@ -1,4 +1,4 @@
-import {useRef} from "react";
+import {useContext, useRef} from "react";
 import { ContactForm } from "../../components/ContactForm/ContactForm";
 import { Wrapper } from "../../components/Wrapper/Wrapper";
 import phoneIcon from "../../assets/icons/contact_phone.svg";
@@ -7,13 +7,16 @@ import contactImg from "../../assets/images/contactImg.webp";
 import paperPlane from "../../assets/images/paper_plane.svg";
 import { motion, useInView } from "framer-motion";
 import styles from "./Contact.module.scss";
+import { ScrollSpySection } from "../../components/ScrollSpySection/ScrollSpySection";
+import { AppContext } from "../../contexts/AppContext";
 
 export const Contact = () => {
+	const { setVisibleSection } = useContext(AppContext)!;
 	const ref = useRef(null);
 	const isInView = useInView(ref, { once: true, margin: "-50px" });
 
 	return (
-		<section id="section" className={styles.contact}>
+		<ScrollSpySection id="contact" className={styles.contact} onVisible={()=>setVisibleSection("contact")}>
 			<Wrapper className={styles.wrapper}>
 				<img src={paperPlane} className={styles.paperPlane} alt="" />
 
@@ -77,6 +80,6 @@ export const Contact = () => {
 					</div>
 				</div>
 			</Wrapper>
-		</section>
+		</ScrollSpySection>
 	);
 };

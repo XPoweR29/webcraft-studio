@@ -13,6 +13,8 @@ interface Breakpoints {
 
 interface AppContextType {
 	breakpoint: Breakpoints;
+	visibleSection: string;
+	setVisibleSection: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export type Review = {
@@ -23,6 +25,7 @@ export type Review = {
 interface NavLink {
 	name: string;
 	href: string;
+	id: string;
 }
 
 interface Feature {

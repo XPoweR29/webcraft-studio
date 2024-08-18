@@ -5,6 +5,7 @@ import { AppContextType, Breakpoints } from "../types/types";
 export const AppContext = createContext<AppContextType | null>(null);
 
 export const ContextProvider = ({ children }: { children: ReactNode }) => {
+	const [visibleSection, setVisibleSection] = useState<string>("");
 	const [breakpoint, setBreakpoint] = useState<Breakpoints>({
 		sm: false,
 		md: false,
@@ -34,6 +35,8 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
 	// declare type for all these vars in AppContextType!
 	const contextValues = {
 		breakpoint,
+		visibleSection,
+		setVisibleSection
 	};
 
 	return (

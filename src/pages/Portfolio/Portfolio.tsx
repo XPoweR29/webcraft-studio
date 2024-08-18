@@ -9,13 +9,16 @@ import innovation from "../../assets/icons/innovation.svg";
 import styles from "./Portfolio.module.scss";
 import { projects } from "../../assets/data/projects";
 import { AssuranceItem } from "../../components/AssuranceItem/AssuranceItem";
-import { useRef } from "react";
+import { useContext, useRef } from "react";
+import { AppContext } from "../../contexts/AppContext";
+import { ScrollSpySection } from "../../components/ScrollSpySection/ScrollSpySection";
 
 export const Portfolio = () => {
+	const { setVisibleSection } = useContext(AppContext)!;
 	const ref = useRef(null);
 
 	return (
-		<section id="portfolio" className={styles.portfolio}>
+		<ScrollSpySection id="portfolio" className={styles.portfolio} onVisible={()=>setVisibleSection("portfolio")}>
 			<Wrapper className={styles.wrapper}>
 				<h2 className={styles.heading}>Nasze realizacje</h2>
 				<p className={styles.text}>
@@ -53,6 +56,6 @@ export const Portfolio = () => {
 					</div>
 				</div>
 			</Wrapper>
-		</section>
+		</ScrollSpySection>
 	);
 };

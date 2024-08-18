@@ -4,12 +4,16 @@ import arrowDraw from "../../assets/images/arrow_draw.svg";
 import { Wrapper } from "../../components/Wrapper/Wrapper";
 import { useBreakpoints } from "../../hooks/useBreakpoints";
 import styles from "./About.module.scss";
+import { ScrollSpySection } from "../../components/ScrollSpySection/ScrollSpySection";
+import { useContext } from "react";
+import { AppContext } from "../../contexts/AppContext";
 
 export const About = () => {
+	const {setVisibleSection} = useContext(AppContext)!;
 	const { breakpoint } = useBreakpoints();
 
 	return (
-		<section id="about" className={styles.about}>
+		<ScrollSpySection id="about" className={styles.about} onVisible={() => setVisibleSection("about")}>
 			<Wrapper className={styles.wrapper}>
 				<div className={styles.container}>
 					<img
@@ -64,6 +68,6 @@ export const About = () => {
 					</a>
 				</div>
 			</Wrapper>
-		</section>
+		</ScrollSpySection>
 	);
 };

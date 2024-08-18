@@ -14,7 +14,7 @@ module.exports = {
     "jsx-a11y/alt-text": ["error"],
 		"no-console": ["error", { "allow": ["warn", "error"] }],
 		"no-debugger": "error",
-		"no-unused-vars": "error",
+		"no-unused-vars": "off",
 		"no-inline-comments": "error",
 		"no-var": "error",
 		"no-trailing-spaces": "error",
@@ -23,6 +23,7 @@ module.exports = {
 		"no-multiple-empty-lines": ["error", { "max": 1 }],
 		"consistent-return": "error",
 		"@next/next/no-img-element": "off",
+    "@typescript-eslint/no-unused-vars": ["error"],
 		"react/no-unescaped-entities": "off",
     'react-refresh/only-export-components': [
       'warn',
