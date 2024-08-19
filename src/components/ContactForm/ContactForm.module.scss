@@ -13,8 +13,19 @@
 }
 
 .formInput {
-	margin-bottom: 15px;
+	margin-bottom: 5px;
 	width: 100%;
+
+	.error {
+		min-height: 1.6em;
+		font-size: 0.8em;
+		color: red;
+		opacity: 0;
+
+		&--active {
+			opacity: 1;
+		}
+	}
 }
 
 input,
@@ -80,11 +91,11 @@ textarea {
 
 .submitButton {
 	@include mainBtn;
+	margin-top: 2em;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	gap: 0.5em;
-	margin-top: 2em;
 
 	.icon {
 		font-size: 1.5em;

@@ -2,34 +2,41 @@ import React, { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./ContactForm.module.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { FormData } from "../../types/types";
+import { validateForm } from "../../utils/formValidation";
 
 export const ContactForm: React.FC = () => {
+	const [errors, setErrors] = useState<{ [key in keyof FormData]?: string }>({});
 	const [formData, setFormData] = useState<FormData>({
 		name: "",
 		email: "",
 		phone: "",
 		subject: "",
 		message: "",
-		consent: false,
 	});
 
 	const handleChange = (
 		e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
-		const { name, value, type } = e.target;
-		const checked = (e.target as HTMLInputElement).checked;
+		const { name, value } = e.target;
 
 		setFormData({
 			...formData,
-			[name]: type === "checkbox" ? checked : value,
+			[name]: value,
 		});
+
+		setErrors((prev) => ({...prev, [name]: null}));
 	};
 
 	const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
 		e.preventDefault();
 
 		try {
-			const response = await fetch("/send-mail.js", {
+
+			if(!validateForm(formData, setErrors)) {
+				throw new Error("Błąd walidacji danych formularza");
+			}
+
+			const response = await fetch("https://simple-backend-beryl.vercel.app/api/send-mail", {
 				method: "POST",
 				headers: {"Content-Type": "application/json"},
 				body: JSON.stringify(formData),
@@ -38,6 +45,14 @@ export const ContactForm: React.FC = () => {
 			if(response.ok) {
 				/* eslint-disable no-console */
 				console.log("Twoja wiadomosć została poprawnie wysłana.");
+
+				setFormData({
+					name: "",
+					email: "",
+					phone: "",
+					subject: "",
+					message: "",
+				});
 			}
 
 		} catch(err) {
@@ -58,6 +73,7 @@ export const ContactForm: React.FC = () => {
 					onChange={handleChange}
 					required
 				/>
+				<p className={`${styles.error} ${errors.name&&styles["error--active"]}`}>{errors.name}</p>
 			</div>
 
 			<div className={styles.formInput}>
@@ -70,6 +86,8 @@ export const ContactForm: React.FC = () => {
 					onChange={handleChange}
 					required
 				/>
+				<p className={`${styles.error} ${errors.email&&styles["error--active"]}`}>{errors.email}</p>
+
 			</div>
 
 			<div className={styles.formInput}>
@@ -82,6 +100,8 @@ export const ContactForm: React.FC = () => {
 					onChange={handleChange}
 					required
 				/>
+				<p className={`${styles.error} ${errors.phone&&styles["error--active"]}`}>{errors.phone}</p>
+
 			</div>
 
 			<div className={styles.formInput}>
@@ -94,6 +114,8 @@ export const ContactForm: React.FC = () => {
 					onChange={handleChange}
 					required
 				/>
+				<p className={`${styles.error} ${errors.subject&&styles["error--active"]}`}>{errors.subject}</p>
+
 			</div>
 
 			<div className={`${styles.formInput} ${styles["formInput--message"]}`}>
@@ -105,6 +127,7 @@ export const ContactForm: React.FC = () => {
 					onChange={handleChange}
 					required
 				/>
+				<p className={`${styles.error} ${errors.message&&styles["error--active"]}`}>{errors.message}</p>
 			</div>
 
 			<div className={styles.formInput}>
@@ -112,7 +135,6 @@ export const ContactForm: React.FC = () => {
 					<input
 						type="checkbox"
 						name="consent"
-						checked={formData.consent}
 						onChange={handleChange}
 						required
 					/>

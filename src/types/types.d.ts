@@ -50,5 +50,4 @@ interface FormData {
 	phone: string;
 	subject: string;
 	message: string;
-	consent: boolean;
 }
