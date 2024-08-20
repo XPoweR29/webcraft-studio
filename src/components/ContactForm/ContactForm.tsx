@@ -3,6 +3,7 @@ import styles from "./ContactForm.module.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { FormData } from "../../types/types";
 import { validateForm } from "../../utils/formValidation";
+import toast from "react-hot-toast";
 
 export const ContactForm: React.FC = () => {
 	const [errors, setErrors] = useState<{ [key in keyof FormData]?: string }>({});
@@ -43,8 +44,11 @@ export const ContactForm: React.FC = () => {
 			});
 
 			if(response.ok) {
-				/* eslint-disable no-console */
-				console.log("Twoja wiadomosć została poprawnie wysłana.");
+				toast.success("Twoja wiadomość została wysłana!", {
+					duration: 3000,
+					position: "bottom-right",
+
+				});
 
 				setFormData({
 					name: "",

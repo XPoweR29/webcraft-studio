@@ -2,7 +2,7 @@
 
 .portfolio {
 	@include section;
-	padding-bottom: 7em;
+	margin-bottom: 5em;
 
 	.heading {
 		@include section-heading;

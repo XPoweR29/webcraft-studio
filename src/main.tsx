@@ -9,6 +9,7 @@ import { Portfolio } from "./pages/Portfolio/Portfolio";
 import { FAQ } from "./pages/FAQ/FAQ";
 import { Contact } from "./pages/Contact/Contact";
 import { Footer } from "./pages/Footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
 	<ContextProvider>
@@ -20,5 +21,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 			<FAQ/>
 			<Contact/>
 			<Footer/>
+			<Toaster/>
 	</ContextProvider>
 );
