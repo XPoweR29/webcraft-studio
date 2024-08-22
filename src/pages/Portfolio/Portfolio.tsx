@@ -18,7 +18,7 @@ export const Portfolio = () => {
 	const ref = useRef(null);
 
 	return (
-		<ScrollSpySection id="portfolio" className={styles.portfolio} onVisible={()=>setVisibleSection("portfolio")}>
+		<ScrollSpySection id="nasze-realizacje" className={styles.portfolio} onVisible={()=>setVisibleSection("nasze-realizacje")}>
 			<Wrapper className={styles.wrapper}>
 				<h2 className={styles.heading}>Nasze realizacje</h2>
 				<p className={styles.text}>

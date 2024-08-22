@@ -13,7 +13,7 @@ export const About = () => {
 	const { breakpoint } = useBreakpoints();
 
 	return (
-		<ScrollSpySection id="about" className={styles.about} onVisible={() => setVisibleSection("about")}>
+		<ScrollSpySection id="o-nas" className={styles.about} onVisible={() => setVisibleSection("o-nas")}>
 			<Wrapper className={styles.wrapper}>
 				<div className={styles.container}>
 					<img

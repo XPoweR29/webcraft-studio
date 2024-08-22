@@ -37,15 +37,15 @@ export const ContactForm: React.FC = () => {
 				throw new Error("Błąd walidacji danych formularza");
 			}
 
-			const response = await fetch("https://simple-backend-beryl.vercel.app/api/send-mail", {
+			const response = await fetch("https://simple-backend-ten.vercel.app/api/send-mail", {
 				method: "POST",
 				headers: {"Content-Type": "application/json"},
 				body: JSON.stringify(formData),
 			});
 
 			if(response.ok) {
-				toast.success("Twoja wiadomość została wysłana!", {
-					duration: 3000,
+				toast.success("Twoja wiadomość została wysłana", {
+					duration: 5000,
 					position: "bottom-right",
 
 				});

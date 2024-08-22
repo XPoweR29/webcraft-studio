@@ -10,7 +10,7 @@ export const Offer = () => {
 	const { setVisibleSection } = useContext(AppContext)!;
 
 	return (
-		<ScrollSpySection id="offer" className={styles.offer} onVisible={()=>setVisibleSection("offer")}>
+		<ScrollSpySection id="nasza-oferta" className={styles.offer} onVisible={()=>setVisibleSection("nasza-oferta")}>
 			<Wrapper className={styles.wrapper}>
 				<h2 className={styles.heading}>
 					Kompleksowe rozwiązania Web Developmentu dla Twojej firmy.

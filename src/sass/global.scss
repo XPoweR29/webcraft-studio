@@ -12,11 +12,21 @@ body {
 	font-family: "Montserrat", sans-serif;
 	color: $main-dark;
 
-	@media(width >= 400px) {
+	.toaster {
+		color: $main-dark;
+		border: 2px solid $accent-color;
+		box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
+
+		.go2344853693 {
+			background-color: $accent-color;
+		}
+	}
+
+	@media (width >= 400px) {
 		font-size: 1.6rem;
 	}
 
-	@media(width >= 1400px) {
+	@media (width >= 1400px) {
 		font-size: 1.8rem;
 	}
 }

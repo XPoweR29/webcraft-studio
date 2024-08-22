@@ -5,12 +5,14 @@ import { Wrapper } from "../Wrapper/Wrapper";
 import styles from "./Nav.module.scss";
 import { AppContext } from "../../contexts/AppContext";
 import { useBreakpoints } from "../../hooks/useBreakpoints";
+import { useNavHandling } from "../../hooks/useNavHandling";
 
 export const Nav = () => {
 	const { breakpoint } = useBreakpoints();
 	const { visibleSection } = useContext(AppContext)!;
 	const [prevScrollPos, setPrevScrollPos] = useState(0);
 	const [showNav, setShowNav] = useState(true);
+	const {handleNavClick, scrollUp} = useNavHandling();
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -35,7 +37,9 @@ export const Nav = () => {
 				breakpoint.lg && (!showNav ? styles["nav--hidden"] : "")
 			}`}>
 			<Wrapper className={styles.wrapper}>
-				<a href="/#">
+				<a  href="/"
+					onClick={scrollUp}
+				>
 					<img className={styles.logo} src={logo} alt="logo WebCraft STUDIO" />
 				</a>
 
@@ -47,7 +51,9 @@ export const Nav = () => {
 									className={`${styles.link} ${
 										visibleSection === id ? styles["link--active"] : ""
 									}`}
-									href={href}>
+									href={href}
+									onClick={(e) => handleNavClick(e, id)}
+									>
 									{name}
 								</a>
 							</li>

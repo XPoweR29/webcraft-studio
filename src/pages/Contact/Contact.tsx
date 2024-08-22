@@ -16,7 +16,7 @@ export const Contact = () => {
 	const isInView = useInView(ref, { once: true, margin: "-50px" });
 
 	return (
-		<ScrollSpySection id="contact" className={styles.contact} onVisible={()=>setVisibleSection("contact")}>
+		<ScrollSpySection id="kontakt" className={styles.contact} onVisible={()=>setVisibleSection("kontakt")}>
 			<Wrapper className={styles.wrapper}>
 				<img src={paperPlane} className={styles.paperPlane} alt="" />
 

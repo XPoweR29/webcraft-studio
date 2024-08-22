@@ -21,6 +21,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 			<FAQ/>
 			<Contact/>
 			<Footer/>
-			<Toaster/>
+			<Toaster toastOptions={{className: "toaster"}}/>
 	</ContextProvider>
 );

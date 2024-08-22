@@ -3,7 +3,7 @@ import { FormData } from "../types/types";
 export const validateForm = (inputs: FormData, setErrors: (val: Partial<FormData>)=>void) => {
     const newErrors: { [key in keyof FormData]?: string } = {};
 	const regName = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s']+$/;
-	const regNum = /^[0-9]+$/;
+	const regNum = /^\+?[0-9\s-]+$/;
 
 	if (inputs.name.trim().length < 3) {
 		newErrors.name = "Imię musi zawierać conajmniej 3 znaki.";
