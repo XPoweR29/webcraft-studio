@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite --host",
-    "build": "tsc -b && vite build",
+    "dev": "vite-react-ssg dev --host",
+    "build": "tsc -b && vite-react-ssg build",
     "lint": "eslint --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "prepare": "husky install"
@@ -37,9 +37,11 @@
     "husky": "^8.0.0",
     "lint-staged": "^15.2.8",
     "postcss": "^8.4.41",
+    "react-router-dom": "^6.26.1",
     "sass": "^1.77.8",
     "tailwindcss": "^3.4.7",
     "typescript": "^5.2.2",
-    "vite": "^5.3.4"
+    "vite": "^5.3.4",
+    "vite-react-ssg": "^0.7.2"
   }
 }

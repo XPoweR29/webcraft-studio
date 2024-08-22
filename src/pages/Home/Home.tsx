@@ -1,4 +1,4 @@
-import { Wrapper } from "../../components/Wrapper";
+
 import tech1 from "../../assets/icons/tech_1.png";
 import tech2 from "../../assets/icons/tech_2.png";
 import tech3 from "../../assets/icons/tech_3.png";
@@ -14,6 +14,7 @@ import { ReviewSwiper } from "../../components/ReviewSwiper/ReviewSwiper";
 import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
 import { useBreakpoints } from "../../hooks/useBreakpoints";
+import { Wrapper } from "../../components/Wrapper/Wrapper";
 
 export const Home = () => {
 	const { breakpoint } = useBreakpoints();

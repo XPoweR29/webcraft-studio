@@ -1,0 +1,22 @@
+# Włączenie modułu przepisywania URL
+RewriteEngine On
+
+# Przekierowanie na HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Przekierowanie z www na wersję bez www
+RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+
+# Przekierowanie z /index.html na stronę główną
+RewriteCond %{THE_REQUEST} /index\.html [NC]
+RewriteRule ^(.*)index\.html$ https://%{HTTP_HOST}/$1 [R=301,L]
+
+# Przekierowanie wszystkich żądań do index.html, chyba że plik lub katalog istnieje
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^.*$ /index.html [L,QSA]
+
+# Obsługa błędu 404 - przekierowanie na index.html
+ErrorDocument 404 /index.html
