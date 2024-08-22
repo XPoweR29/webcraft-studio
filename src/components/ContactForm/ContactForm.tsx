@@ -109,7 +109,7 @@ export const ContactForm: React.FC = () => {
 			</div>
 
 			<div className={styles.formInput}>
-				<label htmlFor="subject">Temat zapytania</label>
+				<label htmlFor="subject">Temat</label>
 				<input
 					type="text"
 					id="subject"
