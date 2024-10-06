@@ -37,9 +37,9 @@ export const ContactForm: React.FC = () => {
 				throw new Error("Błąd walidacji danych formularza");
 			}
 
-			const response = await fetch("https://simple-backend-ten.vercel.app/api/send-mail", {
+			const response = await fetch("https://backendapp-gamma.vercel.app/api/send-mail", {
 				method: "POST",
-				headers: {"Content-Type": "application/json"},
+				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify(formData),
 			});
 
