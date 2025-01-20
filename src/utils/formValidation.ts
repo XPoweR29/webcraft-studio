@@ -1,7 +1,7 @@
-import { FormData } from "../types/types";
+import { Form } from "../types/types";
 
-export const validateForm = (inputs: FormData, setErrors: (val: Partial<FormData>)=>void) => {
-    const newErrors: { [key in keyof FormData]?: string } = {};
+export const validateForm = (inputs: Form, setErrors: (val: Partial<Form>)=>void) => {
+    const newErrors: { [key in keyof Form]?: string } = {};
 	const regName = /^[a-zA-ZąćęłńóśźżĄĆĘŁŃÓŚŹŻ\s']+$/;
 	const regNum = /^\+?[0-9\s-]+$/;
 
