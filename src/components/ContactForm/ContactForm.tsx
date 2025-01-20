@@ -1,13 +1,13 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import styles from "./ContactForm.module.scss";
 import { Icon } from "@iconify/react/dist/iconify.js";
-import { FormData } from "../../types/types";
+import { Form } from "../../types/types";
 import { validateForm } from "../../utils/formValidation";
 import toast from "react-hot-toast";
 
 export const ContactForm: React.FC = () => {
-	const [errors, setErrors] = useState<{ [key in keyof FormData]?: string }>({});
-	const [formData, setFormData] = useState<FormData>({
+	const [errors, setErrors] = useState<{ [key in keyof Form]?: string }>({});
+	const [formData, setFormData] = useState<Form>({
 		name: "",
 		email: "",
 		phone: "",
@@ -32,16 +32,26 @@ export const ContactForm: React.FC = () => {
 		e.preventDefault();
 
 		try {
-
 			if(!validateForm(formData, setErrors)) {
 				throw new Error("Błąd walidacji danych formularza");
 			}
 
-			const response = await fetch("https://backendapp-gamma.vercel.app/api/send-mail", {
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify(formData),
-			});
+			const data = new FormData();
+			data.append("name", formData.name);
+			data.append("email", formData.email);
+			data.append("phone", formData.phone);
+			data.append("subject", formData.subject);
+			data.append("message", formData.message);
+			data.append("sender", "KLIENT@webcraft-studio.pl");
+			data.append("recipient", "kontakt@webcraft-studio.pl");
+
+			const response = await fetch(
+				"https://backendapp-gamma.vercel.app/api/send-mail",
+				{
+					method: "POST",
+					body: data,
+				}
+			);
 
 			if(response.ok) {
 				toast.success("Twoja wiadomość została wysłana", {

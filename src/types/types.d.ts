@@ -44,7 +44,7 @@ type FAQType = {
 	question: string;
 	answer: string;
 };
-interface FormData {
+interface Form {
 	name: string;
 	email: string;
 	phone: string;
